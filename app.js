@@ -125,7 +125,7 @@ let controlsVisible =
 let fontSize =
   Number(
     localStorage.getItem(
-      "fontSize-ict"
+      "fontSize-private"
     )
   ) || 100;
 
@@ -206,7 +206,7 @@ function startReader() {
 
   const savedLocation =
     localStorage.getItem(
-      "epub-ict-location"
+      "epub-private-location"
     );
 
   rendition.display(
@@ -281,7 +281,7 @@ function startReader() {
       try {
 
         localStorage.setItem(
-          "epub-ict-location",
+          "epub-private-location",
           location.start.cfi
         );
 
@@ -545,7 +545,7 @@ function applyTheme() {
 
   const darkMode =
     localStorage.getItem(
-      "darkMode-ict"
+      "darkMode-private"
     ) === "true";
 
   document.body.classList.toggle(
@@ -916,11 +916,11 @@ themeBtn.addEventListener(
 
     const darkMode =
       localStorage.getItem(
-        "darkMode-ict"
+        "darkMode-private"
       ) === "true";
 
     localStorage.setItem(
-      "darkMode-ict",
+      "darkMode-private",
       (!darkMode).toString()
     );
 
@@ -970,7 +970,7 @@ bottomDecreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-ict",
+      "fontSize-private",
       fontSize
     );
 
@@ -988,7 +988,7 @@ bottomIncreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-ict",
+      "fontSize-private",
       fontSize
     );
 
@@ -1058,7 +1058,7 @@ if (
         await navigator
           .serviceWorker
           .register(
-            "./sw-ict.js"
+            "./sw-private.js"
           );
 
       }
