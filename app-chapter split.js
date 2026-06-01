@@ -127,13 +127,13 @@ let controlsVisible =
 let fontSize =
   Number(
     localStorage.getItem(
-      "fontSize-beta"
+      "fontSize-private"
     )
   ) || 100;
 
 
 const READER_DATA_KEY =
-  "epub-beta-reader-data";
+  "epub-private-reader-data";
 
 /* =========================
    SAVE READER DATA
@@ -243,8 +243,9 @@ async function loadBook() {
 }
 
 
-
-
+/* =================
+   CHAPTERS
+================= */
 function getCurrentChapter(
   href
 ) {
@@ -272,8 +273,6 @@ function getCurrentChapter(
     : "";
 
 }
-
-
 
 
 /* =================
@@ -380,9 +379,9 @@ function startReader() {
 
   /* SAVE LOCATION */
 
-rendition.on(
-  "relocated",
-  location => {
+  rendition.on(
+   "relocated",
+   location => {
 
     try {
 
@@ -436,19 +435,17 @@ rendition.on(
       progressFill.style.width =
         percent + "%";
       
-
-
       const readingInfo =
-  document.getElementById(
-    "readingInfo"
-  );
+        document.getElementById(
+        "readingInfo"
+      );
 
-if (readingInfo) {
+      if (readingInfo) {
 
-  const chapterName =
-    getCurrentChapter(
-      location.start.href
-    );
+      const chapterName =
+        getCurrentChapter(
+        location.start.href
+      );
 
   /*
   readingInfo.textContent =
@@ -458,23 +455,19 @@ if (readingInfo) {
     "%";
   */
 
-  readingInfo.textContent =
-  "[" +
-  chapterName +
-  "] " +
-  location.start.href;
+       readingInfo.textContent =
+         "[" +
+       chapterName +
+         "] " +
+       location.start.href;
 
- }
-
-
-
- 
+    }
       
  }
 
-    catch (error) {
+      catch (error) {
 
-      console.error(
+       console.error(
         error
       );
 
@@ -525,10 +518,9 @@ function toggleControls() {
 
 
     document.body.classList.add(
-  "readingMode"
-);
+      "readingMode"
+    );
     
-
   }
 
 }
@@ -716,7 +708,7 @@ function applyTheme() {
 
   const darkMode =
     localStorage.getItem(
-      "darkMode-beta"
+      "darkMode-private"
     ) === "true";
 
   document.body.classList.toggle(
@@ -937,16 +929,11 @@ function renderSearchResults(
       div.textContent =
         result.excerpt;
 
-
-
-
-      
-
       div.addEventListener(
-  "click",
-  async () => {
+       "click",
+        async () => {
 
-    try {
+      try {
 
       /* OPEN LOCATION */
 
@@ -1096,11 +1083,11 @@ themeBtn.addEventListener(
 
     const darkMode =
       localStorage.getItem(
-        "darkMode-beta"
+        "darkMode-private"
       ) === "true";
 
     localStorage.setItem(
-      "darkMode-beta",
+      "darkMode-private",
       (!darkMode).toString()
     );
 
@@ -1150,7 +1137,7 @@ bottomDecreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-beta",
+      "fontSize-private",
       fontSize
     );
 
@@ -1168,7 +1155,7 @@ bottomIncreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-beta",
+      "fontSize-private",
       fontSize
     );
 
@@ -1238,7 +1225,7 @@ if (
         await navigator
           .serviceWorker
           .register(
-            "./sw-beta.js"
+            "./sw-private.js"
           );
 
       }
