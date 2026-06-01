@@ -248,6 +248,34 @@ async function loadBook() {
 }
 
 
+function getCurrentChapter(
+  href
+   ) {
+
+  if (
+    !book ||
+    !book.navigation ||
+    !book.navigation.toc
+  ) {
+
+    return "";
+
+  }
+
+  const item =
+    book.navigation.toc.find(
+      chapter =>
+        href.includes(
+          chapter.href.split("#")[0]
+        )
+    );
+
+  return item
+    ? item.label
+    : "";
+
+}
+
 /* =================
    START READER
 ================= */
@@ -406,7 +434,35 @@ function startReader() {
       progressFill.style.width =
         percent + "%";
 
+      const readingInfo =
+       document.getElementById(
+        "readingInfo"
+      );
+
+      if (readingInfo) {
+
+      const chapterName =
+       getCurrentChapter(
+       location.start.href
+      );
+
+  /*
+  readingInfo.textContent =
+    chapterName +
+    " • " +
+    percent +
+    "%";
+  */
+
+      readingInfo.textContent =
+       "[" +
+      chapterName +
+       "] " +
+      location.start.href;
+
       }
+
+     }
 
       catch (error) {
 
