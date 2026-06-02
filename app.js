@@ -365,6 +365,8 @@ function buildTOC(
 
       closeSidebar();
 
+      hideControls();
+
     }
   );
 
