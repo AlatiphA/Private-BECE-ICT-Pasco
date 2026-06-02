@@ -127,13 +127,13 @@ let controlsVisible =
 let fontSize =
   Number(
     localStorage.getItem(
-      "fontSize-regular"
+      "fontSize-private"
     )
   ) || 100;
 
 
 const READER_DATA_KEY =
-  "epub-regular-reader-data";
+  "epub-private-reader-data";
 
 /* =========================
    SAVE READER DATA
@@ -306,19 +306,6 @@ function startReader() {
 
   hideControls();
 
-  /*header.classList.add(
-    "hideControls"
-  );
-
-  footer.classList.add(
-    "hideControls"
-  );
-
-  controlsVisible = false;
-
-  document.body.classList.add(
-    "readingMode"
-  ); */
 
   /* RESTORE SAVED LOCATION */
   
@@ -515,12 +502,10 @@ function toggleControls() {
       "hideControls"
     );
 
-
     document.body.classList.remove(
       "readingMode"
     );
     
-
   }
 
   else {
@@ -532,7 +517,6 @@ function toggleControls() {
     footer.classList.add(
       "hideControls"
     );
-
 
     document.body.classList.add(
       "readingMode"
@@ -752,7 +736,7 @@ function applyTheme() {
 
   const darkMode =
     localStorage.getItem(
-      "darkMode-regular"
+      "darkMode-private"
     ) === "true";
 
   document.body.classList.toggle(
@@ -1127,11 +1111,11 @@ themeBtn.addEventListener(
 
     const darkMode =
       localStorage.getItem(
-        "darkMode-regular"
+        "darkMode-private"
       ) === "true";
 
     localStorage.setItem(
-      "darkMode-regular",
+      "darkMode-private",
       (!darkMode).toString()
     );
 
@@ -1185,7 +1169,7 @@ bottomDecreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-regular",
+      "fontSize-private",
       fontSize
     );
 
@@ -1203,7 +1187,7 @@ bottomIncreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-regular",
+      "fontSize-private",
       fontSize
     );
 
@@ -1273,7 +1257,7 @@ if (
         await navigator
           .serviceWorker
           .register(
-            "./sw-regular.js"
+            "./sw-private.js"
           );
 
       }
