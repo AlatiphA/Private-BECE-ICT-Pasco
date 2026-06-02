@@ -246,6 +246,7 @@ async function loadBook() {
 /* =================
    CHAPTERS
 ================= */
+
 function getCurrentChapter(
   href
 ) {
@@ -260,17 +261,172 @@ function getCurrentChapter(
 
   }
 
-  const item =
-    book.navigation.toc.find(
-      chapter =>
-        href.includes(
-          chapter.href.split("#")[0]
-        )
+  let result = "";
+
+  function search(
+    items
+  ) {
+
+    items.forEach(
+      item => {
+
+        if (
+          href.includes(
+            item.href.split("#")[0]
+          )
+        ) {
+
+          result =
+            item.label;
+
+        }
+
+        if (
+          item.subitems &&
+          item.subitems.length
+        ) {
+
+          search(
+            item.subitems
+          );
+
+        }
+
+      }
     );
 
-  return item
-    ? item.label
-    : "";
+  }
+
+  search(
+    book.navigation.toc
+  );
+
+  return result;
+
+}
+
+/* =================
+   BUILD TOC
+================= */
+
+function buildTOC(
+  item,
+  level = 0,
+  parent = toc
+) {
+
+  const row =
+    document.createElement(
+      "div"
+    );
+
+  row.className =
+    "tocItem";
+
+  row.style.paddingLeft =
+    (level * 20) + "px";
+
+  const toggle =
+    document.createElement(
+      "span"
+    );
+
+  toggle.className =
+    "tocToggle";
+
+  const hasChildren =
+    item.subitems &&
+    item.subitems.length;
+
+  toggle.textContent =
+    hasChildren
+      ? "▶"
+      : "";
+
+  const link =
+    document.createElement(
+      "a"
+    );
+
+  link.textContent =
+    item.label;
+
+  link.href = "#";
+
+  link.addEventListener(
+    "click",
+    e => {
+
+      e.preventDefault();
+
+      rendition.display(
+        item.href
+      );
+
+      closeSidebar();
+
+    }
+  );
+
+  row.appendChild(
+    toggle
+  );
+
+  row.appendChild(
+    link
+  );
+
+  parent.appendChild(
+    row
+  );
+
+  if (hasChildren) {
+
+    const children =
+      document.createElement(
+        "div"
+      );
+
+    children.className =
+      "tocChildren";
+
+    parent.appendChild(
+      children
+    );
+
+    toggle.addEventListener(
+      "click",
+      e => {
+
+        e.stopPropagation();
+
+        children.classList.toggle(
+          "open"
+        );
+
+        toggle.textContent =
+          children.classList.contains(
+            "open"
+          )
+            ? "▼"
+            : "▶";
+
+      }
+    );
+
+    item.subitems.forEach(
+      child => {
+
+        buildTOC(
+          child,
+          level + 1,
+          children
+        );
+
+      }
+    );
+
+  }
 
 }
 
@@ -331,41 +487,10 @@ function startReader() {
         book.navigation;
 
       navigation.toc.forEach(
-        chapter => {
+        item => {
 
-          const link =
-            document.createElement(
-              "a"
-            );
-
-          link.textContent =
-            chapter.label;
-
-          link.href = "#";
-
-          link.addEventListener(
-            "click",
-            e => {
-
-              e.preventDefault();
-
-              rendition.display(
-                chapter.href
-              );
-
-              sidebar.classList.remove(
-                "active"
-              );
-
-              closeSidebar();
-
-              // showControls();
-
-            }
-          );
-
-          toc.appendChild(
-            link
+          buildTOC(
+            item
           );
 
         }
