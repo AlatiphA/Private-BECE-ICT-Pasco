@@ -1,4 +1,4 @@
-const CACHE_NAME = "alatipha-regictpasco-v6";
+const CACHE_NAME = "alatipha-priictpasco-v6";
 
 const FILES_TO_CACHE = [
 
@@ -6,10 +6,10 @@ const FILES_TO_CACHE = [
   "./index.html",
   "./style.css",
   "./app.js",
-  "./manifest-ict.json",
+  "./manifest-private.json",
   "./library/sample.epub",
-  "./icon-ict-192.png",
-  "./icon-ict-512.png"
+  "./icon-private-192.png",
+  "./icon-private-512.png"
 ];
 
 /* =========================
