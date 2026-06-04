@@ -127,13 +127,13 @@ let controlsVisible =
 let fontSize =
   Number(
     localStorage.getItem(
-      "fontSize-private"
+      "fontSize-beta"
     )
   ) || 100;
 
 
 const READER_DATA_KEY =
-  "epub-private-reader-data";
+  "epub-beta-reader-data";
 
 /* =========================
    SAVE READER DATA
@@ -364,7 +364,6 @@ function buildTOC(
       );
 
       closeSidebar();
-
       hideControls();
 
     }
@@ -577,19 +576,19 @@ function startReader() {
         location.start.href
       );
 
+      readingInfo.textContent =
+        chapterName +
+        " • " +
+        percent +
+        "%";
+
   /*
   readingInfo.textContent =
     chapterName +
     " • " +
     percent +
     "%";
-  */
-
-       readingInfo.textContent =
-         "[" +
-       chapterName +
-         "] " +
-       location.start.href;
+       */
 
     }
       
@@ -658,22 +657,29 @@ function toggleControls() {
  HIDE CONTROLS 
 ========================= */
 
-function hideControls() {
-
+function hideControlsHeader() {
+  
   header.classList.add(
     "hideControls"
   );
+}
 
-  footer.classList.add(
+function hideControlsFooter() {
+  
+  footer.classList.add( 
     "hideControls"
   );
-
+  
   controlsVisible = false;
-
-  document.body.classList.add(
+  
+  document.body.classList.add( 
     "readingMode"
   );
+}
 
+function hideControls() {
+  hideControlsHeader();
+  hideControlsFooter();
 }
 
 
@@ -863,7 +869,7 @@ function applyTheme() {
 
   const darkMode =
     localStorage.getItem(
-      "darkMode-private"
+      "darkMode-beta"
     ) === "true";
 
   document.body.classList.toggle(
@@ -1203,7 +1209,7 @@ function toggleSidebar() {
 
   updateMenuButtons();
 
-  showControls();
+  hideControlsFooter();
 
 }
 
@@ -1212,6 +1218,7 @@ function toggleSidebar() {
 function closeSidebar() {
   sidebar.classList.remove("active");
   updateMenuButtons();
+
   showControls();
 }
 
@@ -1228,6 +1235,35 @@ bottomMenuBtn.addEventListener(
 );
 
 
+
+/*
+menuBtn.addEventListener(
+  "click",
+  () => {
+
+    if (
+      sidebar.classList.contains(
+        "active"
+      )
+    ) {
+
+      closeSidebar();
+
+    }
+
+    else {
+
+      openSidebar();
+
+    }
+
+  }
+);
+*/
+
+
+
+
 /* ==========
    OTHER EVENTS
 ========== */
@@ -1238,15 +1274,16 @@ themeBtn.addEventListener(
 
     const darkMode =
       localStorage.getItem(
-        "darkMode-private"
+        "darkMode-beta"
       ) === "true";
 
     localStorage.setItem(
-      "darkMode-private",
+      "darkMode-beta",
       (!darkMode).toString()
     );
 
     applyTheme();
+    updateMenuButtons();
 
   }
 );
@@ -1257,7 +1294,9 @@ nextPage.addEventListener(
 
     rendition.next();
 
-    hideControls();
+    // hideControls();
+
+    hideControlsHeader();
 
   }
 );
@@ -1267,17 +1306,32 @@ prevPage.addEventListener(
   () => {
 
     rendition.prev();
-
-    hideControls();
+    
+    hideControlsHeader();
 
   }
 );
+
+
+/*
+bottomMenuBtn.addEventListener(
+  "click",
+  () => {
+
+    menuBtn.click();
+
+  }
+);
+
+*/
+
 
 bottomThemeBtn.addEventListener(
   "click",
   () => {
 
     themeBtn.click();
+    updateMenuButtons();
 
   }
 );
@@ -1296,7 +1350,7 @@ bottomDecreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-private",
+      "fontSize-beta",
       fontSize
     );
 
@@ -1314,7 +1368,7 @@ bottomIncreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-private",
+      "fontSize-beta",
       fontSize
     );
 
@@ -1384,7 +1438,7 @@ if (
         await navigator
           .serviceWorker
           .register(
-            "./sw-private.js"
+            "./sw-beta.js"
           );
 
       }
