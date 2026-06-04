@@ -127,13 +127,13 @@ let controlsVisible =
 let fontSize =
   Number(
     localStorage.getItem(
-      "fontSize-beta"
+      "fontSize-private"
     )
   ) || 100;
 
 
 const READER_DATA_KEY =
-  "epub-beta-reader-data";
+  "epub-private-reader-data";
 
 /* =========================
    SAVE READER DATA
@@ -340,7 +340,7 @@ function buildTOC(
 
   toggle.textContent =
     hasChildren
-      ? "▶"
+      ? "⟩"
       : "";
 
   const link =
@@ -409,8 +409,8 @@ function buildTOC(
           children.classList.contains(
             "open"
           )
-            ? "▼"
-            : "▶";
+            ? "⌵"
+            : "⟩";
 
       }
     );
@@ -581,15 +581,7 @@ function startReader() {
         " • " +
         percent +
         "%";
-
-  /*
-  readingInfo.textContent =
-    chapterName +
-    " • " +
-    percent +
-    "%";
-       */
-
+        
     }
       
  }
@@ -869,7 +861,7 @@ function applyTheme() {
 
   const darkMode =
     localStorage.getItem(
-      "darkMode-beta"
+      "darkMode-private"
     ) === "true";
 
   document.body.classList.toggle(
@@ -1217,6 +1209,7 @@ function toggleSidebar() {
 
 function closeSidebar() {
   sidebar.classList.remove("active");
+  
   updateMenuButtons();
 
   showControls();
@@ -1235,35 +1228,6 @@ bottomMenuBtn.addEventListener(
 );
 
 
-
-/*
-menuBtn.addEventListener(
-  "click",
-  () => {
-
-    if (
-      sidebar.classList.contains(
-        "active"
-      )
-    ) {
-
-      closeSidebar();
-
-    }
-
-    else {
-
-      openSidebar();
-
-    }
-
-  }
-);
-*/
-
-
-
-
 /* ==========
    OTHER EVENTS
 ========== */
@@ -1274,11 +1238,11 @@ themeBtn.addEventListener(
 
     const darkMode =
       localStorage.getItem(
-        "darkMode-beta"
+        "darkMode-private"
       ) === "true";
 
     localStorage.setItem(
-      "darkMode-beta",
+      "darkMode-private",
       (!darkMode).toString()
     );
 
@@ -1312,20 +1276,6 @@ prevPage.addEventListener(
   }
 );
 
-
-/*
-bottomMenuBtn.addEventListener(
-  "click",
-  () => {
-
-    menuBtn.click();
-
-  }
-);
-
-*/
-
-
 bottomThemeBtn.addEventListener(
   "click",
   () => {
@@ -1350,7 +1300,7 @@ bottomDecreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-beta",
+      "fontSize-private",
       fontSize
     );
 
@@ -1368,7 +1318,7 @@ bottomIncreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-beta",
+      "fontSize-private",
       fontSize
     );
 
@@ -1438,7 +1388,7 @@ if (
         await navigator
           .serviceWorker
           .register(
-            "./sw-beta.js"
+            "./sw-private.js"
           );
 
       }
