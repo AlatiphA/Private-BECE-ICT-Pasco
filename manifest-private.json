@@ -1,6 +1,6 @@
 {
   "name": "Private BECE ICT Pasco",
-  "short_name": "BECE ICT Pasco 2",
+  "short_name": "PBECE ICT Pasco",
   "start_url": "./index.html?ict=true",
   "scope": "./",
   "display": "standalone",
