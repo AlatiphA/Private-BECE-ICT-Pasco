@@ -224,46 +224,32 @@ footer {
 
 .progressBar {
   flex: 1;
-
   height: 3px;
-
   background: #555;
-
   border-radius: 999px;
-
   overflow: hidden;
-
   margin: 0 8px;
 }
 
 .progressFill {
   height: 100%;
-
   width: 0%;
-
   background: #4aa3ff;
 }
 
 .bottomBtn {
   width: 30px;
   height: 30px;
-
   border: none;
-
   background: transparent;
-
   color: #d8d8d8;
-
   font-size: 16px;
-
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 8px;
-
+  
   transition:
     background 0.2s ease,
     transform 0.15s ease;
@@ -291,24 +277,15 @@ footer {
 
 .sidebar {
   position: fixed;
-
   top: 56px;
   left: -300px;
-
   width: 300px;
-
   height: calc(100dvh - 56px);
-
   background: white;
-
   transition: left 0.3s ease;
-
   z-index: 10000;
-
   padding: 15px;
-
   display: flex;
-
   flex-direction: column;
 
 }
@@ -323,9 +300,7 @@ body.dark .sidebar {
 }
 
 .tocContainer {
-
   flex: 1;
-
   overflow-y: auto;
 
 }
@@ -341,8 +316,8 @@ body.dark .sidebar {
 }
 
 .aboutIcon {
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   border-radius: 8px;
 }
 
@@ -358,23 +333,18 @@ body.dark .sidebar {
 }
 
 
-
 /* =========================
    TOC
 ========================= */
 
 #toc a {
   display: block;
-
   padding: 12px 10px;
-
   color: inherit;
-
   text-decoration: none;
-
   border-bottom: 1px solid #ccc;
-
   font-size: 14px;
+  
 }
 
 #toc a:hover {
@@ -409,11 +379,8 @@ footer.hideControls {
 
 #navOverlay {
   position: absolute;
-
   inset: 0;
-
   display: flex;
-
   z-index: 5000;
 }
 
@@ -443,17 +410,11 @@ button {
 
 #searchModal {
   position: fixed;
-
   inset: 0;
-
   background: rgba(0,0,0,0.6);
-
   z-index: 20000;
-
   display: none;
-
   flex-direction: column;
-
   padding: 20px;
 }
 
@@ -463,57 +424,39 @@ button {
 
 .searchBox {
   display: flex;
-
   gap: 10px;
-
   margin-bottom: 15px;
 }
 
 #searchInput {
   flex: 1;
-
   height: 42px;
-
   border: none;
-
   border-radius: 10px;
-
   padding: 0 14px;
-
   font-size: 15px;
 }
 
 #closeSearch {
   width: 42px;
-
   border: none;
-
   border-radius: 10px;
-
   font-size: 16px;
-
   cursor: pointer;
 }
 
 #searchResults {
   flex: 1;
-
   overflow-y: auto;
-
   background: white;
-
   border-radius: 12px;
-
   padding: 10px;
 }
 
 .searchItem {
   padding: 12px;
-
   border-bottom: 1px solid #ddd;
-
   cursor: pointer;
-
   font-size: 14px;
 }
 
@@ -593,53 +536,37 @@ body.dark .searchItem {
 ========================= */
   
   .tocItem {
-
   display: flex;
-
   align-items: center;
-
   width: 100%;
 
 }
 
   .tocItem a {
-
   flex: 1;
-
   display: block;
 
 }
 
 .tocToggle {
-
   width: 24px;
-
   min-width: 24px;
-
   height: 24px;
-
   display: flex;
-
   align-items: center;
-
   justify-content: center;
-
   cursor: pointer;
-
   user-select: none;
 
 }
 
  .tocChildren {
-
   display: none !important;
-
   margin-left: 24px;
 
  }
 
 .tocChildren.open {
-
   display: block !important;
 
  }
