@@ -289,7 +289,7 @@ footer {
    SIDEBAR
 ========================= */
 
-
+.sidebar {
   position: fixed;
 
   top: 56px;
