@@ -1208,7 +1208,7 @@ function toggleSidebar() {
 
   updateMenuButtons();
 
-  hideControlsFooter();
+  hideFooter();
 
 }
 
@@ -1219,7 +1219,8 @@ function closeSidebar() {
   
   updateMenuButtons();
 
-  showControls();
+  hideHeader();
+  
 }
 
 /* MENU EVENTS */
@@ -1267,7 +1268,7 @@ nextPage.addEventListener(
 
     // hideControls();
 
-    hideControlsHeader();
+     hideHeader();
 
   }
 );
@@ -1278,7 +1279,7 @@ prevPage.addEventListener(
 
     rendition.prev();
     
-    hideControlsHeader();
+     hideHeader();
 
   }
 );
