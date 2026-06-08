@@ -1,4 +1,4 @@
-# AlatiphA GES Pasco
+# Private BECE ICT Pasco 
 
 A fast, lightweight, installable EPUB Reader PWA built with HTML, CSS, JavaScript, and epub.js.
 
@@ -290,7 +290,7 @@ See the full license text here: [https://opensource.org/licenses/MIT](https://op
 ```
 MIT License
 
-Copyright (c) 2025 Abdul-Latif Ahmed (AlatiphA)
+Copyright (c) 2026 Abdul-Latif Ahmed (AlatiphA)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
