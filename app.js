@@ -129,7 +129,7 @@ let controlsVisible =
 let fontSize =
   Number(
     localStorage.getItem(
-      "fontSize-beta"
+      "fontSize-private"
     )
   ) || 100;
 
@@ -149,10 +149,10 @@ if (versionEl)
     "v" + APP_VERSION;
 
 const READER_DATA_KEY =
-  "epub-beta-reader-data";
+  "epub-private-reader-data";
 
 const BOOKMARKS_KEY =
-  "epub-beta-bookmarks";
+  "epub-private-bookmarks";
 
 /* =========================
    SAVE READER DATA
@@ -1536,7 +1536,7 @@ bottomDecreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-beta",
+      "fontSize-private",
       fontSize
     );
 
@@ -1554,7 +1554,7 @@ bottomIncreaseFont.addEventListener(
     );
 
     localStorage.setItem(
-      "fontSize-beta",
+      "fontSize-private",
       fontSize
     );
 
@@ -1624,7 +1624,7 @@ if (
         await navigator
           .serviceWorker
           .register(
-            "./sw-beta.js"
+            "./sw-private.js"
           );
 
       }
