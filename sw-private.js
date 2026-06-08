@@ -1,5 +1,5 @@
 /* =====================================================
-   AlatiphA GES Pasco — Service Worker
+   Private BECE ICT Pasco — Service Worker
    ─────────────────────────────────────────────────
    HOW TO UPDATE:
    Bump APP_VERSION on every release (e.g. "1.0.1").
@@ -8,18 +8,18 @@
 ===================================================== */
 
 const APP_VERSION  = "1.0.1";
-const CACHE_NAME   = `alatipha-ges-pasco-${APP_VERSION}`;
+const CACHE_NAME   = `alatipha-pbeceict-pasco-${APP_VERSION}`;
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
   "./style.css",
   "./app.js",
-  "./sw-beta.js",
-  "./manifest-beta.json",
+  "./sw-private.js",
+  "./manifest-private.json",
   "./library/sample.epub",
-  "./icon-beta-192.png",
-  "./icon-beta-512.png",
+  "./icon-private-192.png",
+  "./icon-private-512.png",
 ];
 
 /* =========================
