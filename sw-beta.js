@@ -15,11 +15,11 @@ const FILES_TO_CACHE = [
   "./index.html",
   "./style.css",
   "./app.js",
-  "./sw-beta.js",
-  "./manifest-beta.json",
+  "./sw-private.js",
+  "./manifest-private.json",
   "./library/sample.epub",
-  "./icon-beta-192.png",
-  "./icon-beta-512.png",
+  "./icon-private-192.png",
+  "./icon-private-512.png",
 ];
 
 /* =========================
