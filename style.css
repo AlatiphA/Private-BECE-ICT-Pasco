@@ -122,10 +122,13 @@ header {
 
 main {
   position: absolute;
-
   inset: 0;
-
   overflow: hidden;
+}
+
+/* Slide animation container */
+#viewer {
+  will-change: transform, opacity;
 }
 
 #viewer {
@@ -540,6 +543,13 @@ body.dark .searchItem {
   pointer-events: none;
 }
 
+/* =========================
+   MOBILE
+========================= */
+
+/* =========================
+   READING INFO
+========================= */
 
 /* =========================
    PERMANENT INFO BAR
