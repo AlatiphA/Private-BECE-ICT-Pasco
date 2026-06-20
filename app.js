@@ -149,10 +149,10 @@ if (versionEl)
     "v" + APP_VERSION;
 
 const READER_DATA_KEY =
-  "regular-ges-pasco-data";
+  "private-ict-pasco-data";
 
 const BOOKMARKS_KEY =
-  "regular-ges-pasco-bookmarks";
+  "private-ict-pasco-bookmarks";
 
 
 /* =========================
@@ -1795,7 +1795,7 @@ if (
         await navigator
           .serviceWorker
           .register(
-            "./sw-regular.js"
+            "./sw-private.js"
           );
 
       }
