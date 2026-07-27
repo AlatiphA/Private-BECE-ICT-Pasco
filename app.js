@@ -170,10 +170,10 @@ if (versionEl)
     "v" + APP_VERSION;
 
 const READER_DATA_KEY =
-  "private-ict-pasco-data";
+  "private-beceict-pasco-data";
 
 const BOOKMARKS_KEY =
-  "private-ict-pasco-bookmarks";
+  "private-beceict-pasco-bookmarks";
 
 
 /* =========================
