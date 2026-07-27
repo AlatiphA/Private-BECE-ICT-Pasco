@@ -18,8 +18,8 @@ const FILES_TO_CACHE = [
   "./sw-private.js",
   "./manifest-private.json",
   "./library/sample.epub",
-  "./icon-private-192.png",
-  "./icon-private-512.png",
+  "./icon-192.png",
+  "./icon-512.png",
 ];
 
 /* =========================
