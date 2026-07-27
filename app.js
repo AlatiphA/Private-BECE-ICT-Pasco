@@ -170,10 +170,10 @@ if (versionEl)
     "v" + APP_VERSION;
 
 const READER_DATA_KEY =
-  "rbece-pasco-data";
+  "private-ict-pasco-data";
 
 const BOOKMARKS_KEY =
-  "rbece-pasco-bookmarks";
+  "private-ict-pasco-bookmarks";
 
 
 /* =========================
@@ -2031,7 +2031,7 @@ if (
         await navigator
           .serviceWorker
           .register(
-            "./sw-mat.js"
+            "./sw-private.js"
           );
 
       }
