@@ -1,5 +1,5 @@
 /* =====================================================
-   Regular BECE ICT Pasco — PWA Install Prompt
+   Private BECE ICT Pasco — PWA Install Prompt
    install.js
    ─────────────────────────────────────────────────
    Handles install prompt for Android/Chrome
@@ -159,9 +159,9 @@
       document.createElement("div");
     banner.id = "installBanner";
     banner.innerHTML = `
-      <img src="icon-regular-192.png" alt="icon" />
+      <img src="icon-192.png" alt="icon" />
       <div class="ib-text">
-        <div class="ib-title">BECE ICT Pasco</div>
+        <div class="ib-title">Private BECE ICT Pasco</div>
         <div class="ib-sub">Add to Home Screen for offline reading</div>
       </div>
       <div class="ib-actions">
