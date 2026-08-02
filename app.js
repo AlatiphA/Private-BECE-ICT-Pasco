@@ -2159,7 +2159,7 @@ if (
         await navigator
           .serviceWorker
           .register(
-            "./sw-regular.js"
+            "./sw-private.js"
           );
 
       }
