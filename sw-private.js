@@ -8,7 +8,7 @@
 ===================================================== */
 
 const APP_VERSION  = "v3.4.3";
-const CACHE_NAME   = `model-aptitude-test2-${APP_VERSION}`;
+const CACHE_NAME   = `alatipha-private-pasco-${APP_VERSION}`;
 
 /* ====================
    APP SHELL
@@ -20,8 +20,8 @@ const FILES_TO_CACHE = [
   "./faq.html",
   "./style.css",
   "./app.js",
-  "./sw-regular.js",
-  "./manifest-regular.json",
+  "./sw-private.js",
+  "./manifest-private.json",
   "./library/sample.epub",
   "./icon-192.png",
   "./icon-512.png",
